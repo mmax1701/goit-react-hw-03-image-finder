@@ -1,4 +1,6 @@
-import { Component } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import css from './Searchbar.module.css'
 
 
 
@@ -22,13 +24,14 @@ export class Searchbar extends Component {
 
     render() {
         return (
-            <header>
-                <form onSubmit={this.handleFormSubmit}>
-                    <button type="submit">
+            <header className={css.searchbar}>
+                <form onSubmit={this.handleFormSubmit} className={css.form}>
+                    <button type="submit" className={css.button}>
                         <span>Search</span>
                     </button>
 
                     <input
+                        className={css.input}
                         type="text"
                         autoComplete="off"
                         autoFocus
@@ -40,4 +43,8 @@ export class Searchbar extends Component {
             </header>
         )
     }
+}
+
+Searchbar.propTypes = {
+    handleFormSubmit: PropTypes.func.isRequired,
 }
